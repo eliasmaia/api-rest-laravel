@@ -14,6 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/test', function (){
+    return "Holla Elias";
+});
+
+Route::post('/usuario/{name}', function ($name){
+    return "Hola $name";
+});
+Route::put('/usuario/{name}', function ($name){
+    return "Hola $name";
+});
+Route::patch('/usuario/{name}', function ($name){
+    return "Hola $name";
+});
+Route::delete('/usuario/{id}', function ($id){
+    return "O usuario com a $id foi apagado.";
 });
