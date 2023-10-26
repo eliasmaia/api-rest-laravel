@@ -30,3 +30,14 @@ Route::patch('/usuario/{name}', function ($name){
 Route::delete('/usuario/{id}', function ($id){
     return "O usuario com a $id foi apagado.";
 });
+
+Route::get('/random/{min}/{max}', function($min, $max){
+    if(!is_numeric($min) || !is_numeric($max)){
+        $array = array('msg' => 'Alguma das variaveis nao e numerica');
+        return response($array, 400);
+    }
+
+    $number_random = rand($min, $max);
+    $array = array('number_random' => $number_random);
+    return response($array, 200);
+});
